@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-version:
+      nodejs: 12
+  finally:
+    - npm --version
+
+  build:
+    commands:
+      - cd code/web
+      - mkdir dist
+      - touch ./dist/not.implemented
+      - cd -
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: dist
