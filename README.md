@@ -6,6 +6,37 @@ Vue and Tailwind based website, hosted on AWS. IaC with Terraform, CICD with Cod
 
 Site contents - Simple about (home), links (navbar) and resume. Private pages for build status and links to various systems and tools needed for daily work.
 
+## Development Setup
+
+
+```bash
+# Install dev tools
+brew cask install visual-studio-code
+brew install node
+brew install terraform
+
+# Grab code
+git clone https://github.com/benoram/oram.co
+cd oram.co
+
+# Setup terrform
+cd cicd
+terraform init # Select the "dev" workspace when prompted
+cd -
+
+cd automation
+terraform init # Select the "dev" workspace when prompted
+cd -
+
+# Setup web project
+cd code/web
+npm install
+
+# Run locally
+npm run serve
+// You can view the site at [http://localhost:8080](http://localhost:8080)
+```
+
 ## Project Folder Layout
 
 ### cicd
@@ -42,3 +73,6 @@ The [./infrastructure](./infrastructure) folder contains the CodeBuild buildspec
 ## Services Used and Dependencies
 
 [Terraform Cloud](https://app.terraform.io) - Used to host Terraform state; Build and apply Terraform plans.
+[VUE.JS](https://vuejs.org/)
+[NPM](https://www.npmjs.com/)
+[tailwindcss](https://tailwindcss.com/)
