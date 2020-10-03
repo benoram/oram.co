@@ -13,10 +13,8 @@ phases:
       - mkdir dist
       - touch ./dist/not.implemented
       - cd -
-      - touch ./deploy/buildspec.yaml
-      - ls -R
 
 artifacts:
   files:
-    - '/deploy/**/*'
-    - '/code/web/dist/**/*'
+    - 'deploy/buildspec.yaml'
+    - 'code/web/dist/**/*'
