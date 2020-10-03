@@ -9,11 +9,11 @@ phases:
 
   build:
     commands:
-      - ls -R
       - cd code/web
       - mkdir dist
       - touch ./dist/not.implemented
       - cd -
+      - ls -R
 
 artifacts:
   files:
