@@ -4,8 +4,8 @@ phases:
   install:
     runtime-version:
       nodejs: 12
-  finally:
-    - npm --version
+    finally:
+      - npm --version
 
   build:
     commands:
