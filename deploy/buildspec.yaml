@@ -9,12 +9,11 @@ phases:
 
   build:
     commands:
-      - cd code/web
-      - mkdir dist
-      - touch ./dist/not.implemented
+      - cd deploy
+      - touch ./not.implemented
       - cd -
 
 artifacts:
   files:
     - '**/*'
-  base-directory: code/web/dist
+  base-directory: deploy
