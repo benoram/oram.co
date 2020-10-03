@@ -16,5 +16,6 @@ phases:
 
 artifacts:
   files:
+    - '/deploy/buildspec.yaml'
     - '**/*'
   base-directory: code/web/dist
