@@ -1,0 +1,13 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - cd deploy
+      - touch ./not.implemented
+      - cd -
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: deploy
