@@ -10,8 +10,8 @@ phases:
   build:
     commands:
       - cd code/web
-      - mkdir dist
-      - touch ./dist/not.implemented
+      - npm install
+      - npm run build
       - cd -
 
 artifacts:
