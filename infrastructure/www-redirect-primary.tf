@@ -26,7 +26,7 @@ resource "aws_s3_bucket" "www_redirect_primary" {
   }
 
   website {
-      redirect_all_requests_to = "https://${var.domain_name}"
+      redirect_all_requests_to = "https://${data.aws_ssm_parameter.domain_name.value}"
   }
 }
 
