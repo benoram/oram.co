@@ -11,7 +11,7 @@ phases:
   build:
     commands:
       - echo 'credentials "app.terraform.io" {' > ~/.terraformrc
-      - echo "  token=\"$TERRAFORM_TEAM_TOKEN\""" >> ~/.terraformrc
+      - echo "  token=\"$TERRAFORM_TEAM_TOKEN\"" >> ~/.terraformrc
       - echo "}" >> ~/.terraformrc
       - cat ~/.terraformrc
 
