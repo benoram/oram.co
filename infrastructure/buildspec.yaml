@@ -10,16 +10,21 @@ phases:
 
   build:
     commands:
+      # Terraform Credetials
       - echo 'credentials "app.terraform.io" {' > ~/.terraformrc
       - echo "  token=\"$TERRAFORM_TEAM_TOKEN\"" >> ~/.terraformrc
       - echo "}" >> ~/.terraformrc
-      - cat ~/.terraformrc
 
+      # Terraform Environment
       - cd infrastructure
       - mkdir .terraform
-      - printf '%s' dev > ./.terraform/environment 
+      - printf '%s' $TERRAFORM_ENVIRONMENT > ./.terraform/environment 
+
+      # Run Terraform
       - terraform init
-      - terraform plan
+      - terraform validate
+      - terraform apply -auto-approve
+
       - cd -
 
 artifacts:
