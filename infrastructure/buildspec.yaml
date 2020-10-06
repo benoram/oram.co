@@ -3,18 +3,16 @@ version: 0.2
 phases:
   install:
     commands:      
-      - export TERRAFORM_VERSION=0.13.4
-      - export TF_WORKSPACE_CODE=dev
-      - wget https://releases.hashicorp.com/terraform/$(TERRAFORM_VERSION)/terraform_$(TERRAFORM_VERSION)_linux_amd64.zip
-      - unzip terraform_$(TERRAFORM_VERSION)_linux_amd64.zip
+      - wget https://releases.hashicorp.com/terraform/0.13.4/terraform_0.13.4_linux_amd64.zip
+      - unzip terraform_0.13.4_linux_amd64.zip
       - mv terraform /bin
-      - rm terraform_$(TERRAFORM_VERSION)_linux_amd64.zip
+      - rm terraform_0.13.4_linux_amd64.zip
 
   build:
     commands:
       - cd infrastructure
       - mkdir .terraform
-      - printf '%s' $(TF_WORKSPACE_CODE) > ./.terraform/environment
+      - printf '%s' dev > ./.terraform/environment
       - terraform init
       - terraform plan
       - cd -
