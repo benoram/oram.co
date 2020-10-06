@@ -18,7 +18,8 @@ phases:
       # Terraform Environment
       - cd infrastructure
       - mkdir .terraform
-      - printf '%s' $TERRAFORM_ENVIRONMENT > ./.terraform/environment 
+      - printf '%s' $TERRAFORM_ENVIRONMENT > ./.terraform/environment
+      - cat ./.terraform/environment
 
       # Run Terraform
       - terraform init
