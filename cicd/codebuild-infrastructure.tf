@@ -25,6 +25,17 @@ resource "aws_codebuild_project" "infrastructure" {
             name = "SAM_CLI_TELEMETRY"
             value = "1"
         }
+
+        environment_variable {
+            name = "TERRAFORM_TEAM_TOKEN"
+            type = "PARAMETER_STORE"
+            value = "/${var.deploy_id}/terraform/team_token"
+        }
+
+        environment_variable {
+            name = "TERRAFORM_ENVIRONMENT"
+            value = local.terraform_environment
+        }
     }
 
     logs_config {
