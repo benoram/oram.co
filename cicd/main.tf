@@ -11,7 +11,7 @@ terraform {
     backend "remote" {
         organization = "oramco"
         workspaces {
-            prefix = "oramco-website-"
+            prefix = "oramco-website-cicd-"
         }
     }
 }
