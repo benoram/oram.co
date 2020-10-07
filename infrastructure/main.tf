@@ -2,6 +2,11 @@ terraform {
     required_version = ">= 0.13, < 0.14"
 
     required_providers {  
+        archive = {
+            source = "hashicorp/archive"
+            version = "~> 1.3.0"
+        }
+        
         aws = {
             source = "hashicorp/aws"
             version = "~> 3.9.0"
@@ -15,6 +20,8 @@ terraform {
         }
     }
 }
+
+
 
 provider "aws" {    
     alias  = "oregon"
