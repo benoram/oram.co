@@ -1,20 +1,20 @@
 version: 0.2
 
 phases:
-  install:
-    runtime-versions:
-      nodejs: 12
-    finally:
-      - npm --version
+    install:
+        runtime-versions:
+            nodejs: 12
+        finally:
+            - npm --version
 
   build:
-    commands:
-      - cd code/web
-      - npm install
-      - npm run build
-      - cd -
+      commands:
+          - cd code/web
+          - npm install
+          - npm run build
+          - cd -
 
 artifacts:
-  files:
-    - 'deploy/buildspec.yaml'
-    - 'code/web/dist/**/*'
+    files:
+        - 'deploy/buildspec.yaml'
+        - 'code/web/dist/**/*'
