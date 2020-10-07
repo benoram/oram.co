@@ -12,8 +12,8 @@ phases:
             - aws --version
             - cd -
 
-            - aws s3 sync public/ "s3://${BUCKET_NAME}/" --sse AES256 --cache-control max-age=3600 --only-show-errors
-            - aws cloudfront create-invalidation --distribution-id ${CF_DISTRIBUTION_ID} --paths /\*
+            - aws s3 sync  ./ "s3://${BUCKET_NAME}/" --sse AES256 --cache-control max-age=3600 --only-show-errors
+            - aws cloudfront create-invalidation --distribution-id ${CF_DISTRIBUTION_ID} --paths /\* --delete
 artifacts:
     files:
         - '**/*'
