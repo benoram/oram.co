@@ -1,6 +1,6 @@
-resource "aws_s3_bucket" "www_redirect_failover" {
+resource "aws_s3_bucket" "www_redirect" {
   provider = aws.virginia
-  bucket = "${var.deploy_id}-www-redirect-failover"
+  bucket = "${var.deploy_id}-www-redirect"
 
   server_side_encryption_configuration {
     rule {
@@ -30,9 +30,9 @@ resource "aws_s3_bucket" "www_redirect_failover" {
   }
 }
 
-resource "aws_s3_bucket_public_access_block" "www_redirect_failover" {
+resource "aws_s3_bucket_public_access_block" "www_redirect" {
   provider = aws.virginia
-  bucket = aws_s3_bucket.www_redirect_failover.id
+  bucket = aws_s3_bucket.www_redirect.id
 
   block_public_acls       = true
   block_public_policy     = true
