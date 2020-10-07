@@ -1,9 +1,9 @@
 version: 0.2
 
 env:
-    parameter_store:
-        CF_DISTRIBUTION_ID: "/${var.deploy_id}/cloudfront/apex-content/id"
-        BUCKET_NAME: "/${var.deploy_id}/s3/apex-content/bucket-name"
+    parameter-store:
+        BUCKET_NAME: "/${var.deploy_id}/content/bucket-name"
+        CF_DISTRIBUTION_ID: "/${var.deploy_id}/content/distribution-id"        
 
 phases:
     build:
