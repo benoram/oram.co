@@ -1,6 +1,6 @@
-resource "aws_s3_bucket" "www_redirect" {
-  provider = aws.virginia
-  bucket = "${var.deploy_id}-www-redirect"
+resource "aws_s3_bucket" "www_redirect_content" {
+  provider = aws.oregon
+  bucket = "${var.deploy_id}-www-redirect-content"
 
   server_side_encryption_configuration {
     rule {
@@ -30,9 +30,9 @@ resource "aws_s3_bucket" "www_redirect" {
   }
 }
 
-resource "aws_s3_bucket_public_access_block" "www_redirect" {
-  provider = aws.virginia
-  bucket = aws_s3_bucket.www_redirect.id
+resource "aws_s3_bucket_public_access_block" "www_redirect_content" {
+  provider = aws.oregon
+  bucket = aws_s3_bucket.www_redirect_content.id
 
   block_public_acls       = true
   block_public_policy     = true
