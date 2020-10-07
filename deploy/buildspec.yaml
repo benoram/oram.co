@@ -1,13 +1,13 @@
 version: 0.2
 
 phases:
-  build:
-    commands:
-      - cd deploy
-      - touch ./not.implemented
-      - cd -
+    build:
+        commands:
+            - cd code/web/dist
+            - aws --version
+            - cd -
 
 artifacts:
-  files:
-    - '**/*'
-  base-directory: deploy
+    files:
+        - '**/*'
+    base-directory: deploy
