@@ -29,7 +29,7 @@ resource "aws_codebuild_project" "infrastructure" {
         environment_variable {
             name = "TERRAFORM_TEAM_TOKEN"
             type = "PARAMETER_STORE"
-            value = "/${var.deploy_id}/terraform/team_token"
+            value = "/${var.deploy_id}/terraform/team-token"
         }
 
         environment_variable {

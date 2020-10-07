@@ -2,8 +2,8 @@ version: 0.2
 
 env:
     parameter-store:
-        BUCKET_NAME: "/${var.deploy_id}/content/bucket-name"
-        CF_DISTRIBUTION_ID: "/${var.deploy_id}/content/distribution-id"        
+        BUCKET_NAME: "/$DEPLOY_ID/content/bucket-name"
+        CF_DISTRIBUTION_ID: "/$DEPLOY_ID/content/distribution-id"        
 
 phases:
     build:
