@@ -21,6 +21,10 @@ resource "aws_s3_bucket" "apex_content" {
         }
     } 
 
+    website {
+        index_document = "index.html"
+    }
+
     versioning {
         enabled = true
     }
@@ -31,7 +35,26 @@ resource "aws_s3_bucket_public_access_block" "apex_content" {
     bucket = aws_s3_bucket.apex_content.id
 
     block_public_acls       = true
-    block_public_policy     = true
+    block_public_policy     = false
     ignore_public_acls      = true
-    restrict_public_buckets = true
+    restrict_public_buckets = false
+}
+
+data "aws_iam_policy_document" "apex_content" {    
+    provider = aws.oregon
+    statement {
+        actions = [
+            "s3:GetObject"
+        ]
+
+        resources = [            
+            "${aws_s3_bucket.apex_content.arn}/*"
+        ]
+    }
+}
+
+resource "aws_s3_bucket_policy" "apex_content" {
+    provider = aws.oregon
+    bucket = aws_s3_bucket.apex_content.id
+    policy = data.aws_iam_policy_document.apex_content.json
 }
