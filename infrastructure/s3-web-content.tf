@@ -43,11 +43,17 @@ resource "aws_s3_bucket_public_access_block" "apex_content" {
 data "aws_iam_policy_document" "apex_content" {    
     provider = aws.oregon
     statement {
+        effect = "Allow"
+        principals {
+            type = "AWS"
+            identifiers = ["*"]
+        }
         actions = [
             "s3:GetObject"
         ]
 
         resources = [            
+            aws_s3_bucket.apex_content.arn,
             "${aws_s3_bucket.apex_content.arn}/*"
         ]
     }
