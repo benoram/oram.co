@@ -1,12 +1,12 @@
 data "archive_file" "security_headers_code" {
     type        = "zip"
-    source_dir  = "lambda/security-headers"
-    output_path = "lambda/security-headers/function.zip"
+    source_dir  = "lambda-edge/security-headers"
+    output_path = "lambda-edge/security-headers/function.zip"
 }
 
 resource "aws_lambda_function" "set_security_headers" {
     provider         = aws.virginia
-    filename         = "lambda/security-headers/function.zip"
+    filename         = "lambda-edge/security-headers/function.zip"
     function_name    = "${var.deploy_id}-cloudfront-set-security-headers"
     role             = aws_iam_role.lambda_edge_iam.arn
     handler          = "set-headers.handler"
