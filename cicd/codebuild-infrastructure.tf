@@ -8,7 +8,7 @@ resource "aws_codebuild_project" "infrastructure" {
     name = "${var.deploy_id}-infrastructure"
     provider = aws.oregon
     description = "Terraform deploy for infrastructure - ${var.domain_name}"
-    build_timeout = "5" # 5 minutes
+    build_timeout = "30" # 30 minutes
     service_role = aws_iam_role.codebuild.arn
 
     artifacts {
@@ -24,6 +24,17 @@ resource "aws_codebuild_project" "infrastructure" {
         environment_variable {
             name = "SAM_CLI_TELEMETRY"
             value = "1"
+        }
+
+        environment_variable {
+            name = "TERRAFORM_TEAM_TOKEN"
+            type = "PARAMETER_STORE"
+            value = "/${var.deploy_id}/terraform/team-token"
+        }
+
+        environment_variable {
+            name = "TERRAFORM_ENVIRONMENT"
+            value = local.terraform_environment
         }
     }
 

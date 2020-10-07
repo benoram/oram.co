@@ -25,6 +25,11 @@ resource "aws_codebuild_project" "deploy" {
             name = "SAM_CLI_TELEMETRY"
             value = "1"
         }
+
+        environment_variable {
+            name = "DEPLOY_ID"
+            value = var.deploy_id
+        }
     }
 
     logs_config {

@@ -1,13 +1,35 @@
 version: 0.2
 
 phases:
-  build:
-    commands:
-      - cd infrastructure
-      - touch ./not.implemented
-      - cd -
+    install:
+        commands:      
+            - wget https://releases.hashicorp.com/terraform/0.13.4/terraform_0.13.4_linux_amd64.zip
+            - unzip terraform_0.13.4_linux_amd64.zip
+            - mv terraform /bin
+            - rm terraform_0.13.4_linux_amd64.zip
+
+    build:
+        commands:
+            # Terraform Credetials
+            - echo 'credentials "app.terraform.io" {' > ~/.terraformrc
+            - echo "  token=\"$TERRAFORM_TEAM_TOKEN\"" >> ~/.terraformrc
+            - echo "}" >> ~/.terraformrc
+
+            # Terraform Environment
+            - cd infrastructure
+            - mkdir .terraform
+            - printf '%s' $TERRAFORM_ENVIRONMENT > ./.terraform/environment
+            - cat ./.terraform/environment
+
+            # Run Terraform
+            - terraform init
+            - terraform validate
+            - terraform apply -auto-approve
+
+            - cd -
 
 artifacts:
-  files:
-    - '**/*'
-  base-directory: infrastructure
+    files:
+        - '**/*'
+    base-directory: infrastructure
+  

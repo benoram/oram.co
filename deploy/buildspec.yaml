@@ -1,13 +1,12 @@
 version: 0.2
 
-phases:
-  build:
-    commands:
-      - cd deploy
-      - touch ./not.implemented
-      - cd -
+env:
+    parameter-store:
+        BUCKET_NAME: "/$DEPLOY_ID/content/bucket-name"
+        CF_DISTRIBUTION_ID: "/$DEPLOY_ID/content/distribution-id"        
 
-artifacts:
-  files:
-    - '**/*'
-  base-directory: deploy
+phases:
+    build:
+        commands:
+            - aws s3 sync  ./code/web/dist/ "s3://${BUCKET_NAME}/" --sse AES256 --cache-control max-age=3600 --only-show-errors --delete
+            - aws cloudfront create-invalidation --distribution-id ${CF_DISTRIBUTION_ID} --paths /\* 

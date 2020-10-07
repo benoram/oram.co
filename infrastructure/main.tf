@@ -11,7 +11,7 @@ terraform {
     backend "remote" {
         organization = "oramco"
         workspaces {
-            prefix = "oramco-website-cicd-"
+            prefix = "oramco-website-infrastructure-"
         }
     }
 }
@@ -19,6 +19,11 @@ terraform {
 provider "aws" {    
     alias  = "oregon"
     region = "us-west-2"
+}
+
+provider "aws" {    
+    alias  = "virginia"
+    region = "us-east-1"
 }
 
 data "aws_caller_identity" "current" {

@@ -30,7 +30,7 @@ data "aws_iam_policy_document" "codebuild_permissions" {
         ]
     }
 
-  statement {
+    statement {
         actions = [
             "s3:GetObject",
             "s3:GetObjectVersion",
@@ -43,9 +43,9 @@ data "aws_iam_policy_document" "codebuild_permissions" {
             aws_s3_bucket.build_artifacts.arn,
             "${aws_s3_bucket.build_artifacts.arn}/*"
         ]
-  }
+    }
 
-  statement {
+    statement {
         actions = [
             "cloudfront:CreateInvalidation"
         ]
@@ -53,7 +53,17 @@ data "aws_iam_policy_document" "codebuild_permissions" {
         resources = [
             "*"
         ]
-  }
+    }
+
+    statement {
+        actions = [
+            "ssm:GetParameters"
+        ]
+
+        resources = [
+            "arn:aws:ssm:us-west-2:${data.aws_caller_identity.current.account_id}:parameter/${var.deploy_id}/*"
+        ]
+    }
 }
 
 resource "aws_iam_policy" "codebuild" {
