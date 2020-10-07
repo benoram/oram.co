@@ -22,7 +22,7 @@ resource "aws_cloudfront_distribution" "apex_content" {
         allowed_methods  = ["GET", "HEAD"]
         cached_methods   = ["GET", "HEAD"]
         target_origin_id = "s3-redirect"
-        viewer_protocol_policy = "allow-all"
+        viewer_protocol_policy = "redirect-to-https"
 
         forwarded_values {
             query_string = true
@@ -30,6 +30,11 @@ resource "aws_cloudfront_distribution" "apex_content" {
             cookies {
                 forward = "none"
             }
+        }
+        lambda_function_association {
+            event_type = "origin-response"
+            include_body = false
+            lambda_arn = aws_lambda_function.set_security_headers.qualified_arn
         }
 
         compress = true
