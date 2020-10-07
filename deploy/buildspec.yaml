@@ -1,5 +1,10 @@
 version: 0.2
 
+env:
+    parameter_store:
+        CF_DISTRIBUTION_ID: "/${var.deploy_id}/cloudfront/apex-content/id"
+        BUCKET_NAME: "/${var.deploy_id}/s3/apex-content/bucket-name"
+
 phases:
     build:
         commands:
@@ -7,6 +12,8 @@ phases:
             - aws --version
             - cd -
 
+            - aws s3 sync public/ "s3://${BUCKET_NAME}/" --sse AES256 --cache-control max-age=3600 --only-show-errors
+            - aws cloudfront create-invalidation --distribution-id ${CF_DISTRIBUTION_ID} --paths /\*
 artifacts:
     files:
         - '**/*'
