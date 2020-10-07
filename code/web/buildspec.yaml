@@ -7,12 +7,12 @@ phases:
         finally:
             - npm --version
 
-  build:
-      commands:
-          - cd code/web
-          - npm install
-          - npm run build
-          - cd -
+    build:
+        commands:
+            - cd code/web
+            - npm install
+            - npm run build
+            - cd -
 
 artifacts:
     files:
