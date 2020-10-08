@@ -39,6 +39,27 @@ exports.handler = (event, context, callback) => {
 						value: 'same-origin'
 				}
 		]; 
+
+		headers["feature-policy" = [
+				{
+						key: 'Feature-Policy',
+						value: "accelerometer 'none'; " +
+									 "ambient-light-sensor 'none'; " +
+									 "autoplay 'none'; " +
+									 "camera 'none'; " +
+									 "encrypted-media 'none'; " +
+									 "focus-without-user-activation 'none'; " +
+									 "fullscreen 'none'; geolocation 'none'; " +
+									 "gyroscope 'none'; magnetometer 'none'; " +
+									 "microphone 'none'; midi 'none'; " +
+									 "payment 'none'; " +
+									 "picture-in-picture 'none'; " +
+									 "speaker 'none'; " +
+									 "sync-xhr 'none'; " +
+									 "usb 'none'; " +
+									 "vr 'none'"
+				}
+		]];
 	
 		
 		// headers['content-security-policy'] = [
