@@ -14,7 +14,7 @@ terraform {
     }
 
     backend "remote" {
-        organization = "oramco"
+        organization = "benoram"
         workspaces {
             prefix = "oramco-website-infrastructure-"
         }
