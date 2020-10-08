@@ -40,7 +40,7 @@ exports.handler = (event, context, callback) => {
 				}
 		]; 
 
-		headers["feature-policy" = [
+		headers["feature-policy"] = [
 				{
 						key: 'Feature-Policy',
 						value: "accelerometer 'none'; " +
@@ -49,9 +49,12 @@ exports.handler = (event, context, callback) => {
 									 "camera 'none'; " +
 									 "encrypted-media 'none'; " +
 									 "focus-without-user-activation 'none'; " +
-									 "fullscreen 'none'; geolocation 'none'; " +
-									 "gyroscope 'none'; magnetometer 'none'; " +
-									 "microphone 'none'; midi 'none'; " +
+									 "fullscreen 'none'; " +
+									 "geolocation 'none'; " +
+									 "gyroscope 'none'; " +
+									 "magnetometer 'none'; " +
+									 "microphone 'none'; " +
+									 "midi 'none'; " +
 									 "payment 'none'; " +
 									 "picture-in-picture 'none'; " +
 									 "speaker 'none'; " +
@@ -59,7 +62,7 @@ exports.handler = (event, context, callback) => {
 									 "usb 'none'; " +
 									 "vr 'none'"
 				}
-		]];
+		];
 	
 		
 		// headers['content-security-policy'] = [
