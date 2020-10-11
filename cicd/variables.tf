@@ -16,11 +16,9 @@ variable "deploy_id" { type = string }
 variable "domain_name" { type = string }
 
 locals {
-    // We append -dev or -prod on our Terraform environments, and use the same convention
-    // for the deploy_id var associated with the terraform environment.
-    // This value will be used by the Infrastructure script, since it needs to pick
-    // a terraform environment to deploy to. And could be used other places too.
-    terraform_environment = trimsuffix(var.deploy_id, "dev") == var.deploy_id  ? "dev" : "prod"
+    // For dev environments we prefix our deploy_id with dev-. There are times we need to know
+    // if the script/build is for dev or prod.
+    terraform_environment = trimprefix(var.deploy_id, "dev-") == var.deploy_id  ? "prod" : "dev"
     isDev = local.terraform_environment == "dev"
     isProd = local.terraform_environment == "prod"
 }
