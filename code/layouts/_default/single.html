@@ -1,10 +1,12 @@
 {{ define "content" }}
 <div class="bg-white overflow-hidden mx-4 sm:mx-4 lg:mx-auto">
-    <div class="text-lg max-w-prose mx-auto">
+    <div class="text-lg max-w-prose mx-auto">        
         <h1>
             <span class="block text-base text-indigo-600 font-semibold tracking-wide uppercase">{{ .Params.post_type }}</span>
-            <span class="mt-2 block text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">{{ .Title }}</span> {{ partial "post/tags.html" . }}
+            <span class="mt-2 block text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">{{ .Title }}</span> 
+            
         </h1>
+        {{ partial "post/tags.html" . }}
     </div>
     <div class="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto">
         {{ .Content }}

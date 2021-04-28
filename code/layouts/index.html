@@ -1,7 +1,10 @@
 {{ define "content" }}
 <section class="m-4 md:mx-0 md:my-8">
-    {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }} {{ range $paginator.Pages }} {{ partial "post/summary.html" . }}
-    <hr /> {{ end }}
+    {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }} 
+    {{ range $paginator.Pages }} 
+    {{ partial "post/summary.html" . }}
+    <hr /> 
+    {{ end }}
 </section>
 
 {{ if gt .Paginator.TotalPages 1 }}
