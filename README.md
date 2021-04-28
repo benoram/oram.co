@@ -50,13 +50,11 @@ There is an expectation that the CICD Terraform rarely changes. When it does, yo
 
 All deployments of CICD should be done manually using the following steps.
 
-1. Disable CodePipeline by manually deactivating the Webhook trigger using the AWS CLI or Console.
-2. Commit and push (dev branch) or merge (Main branch)
-3. In the Terraform Cloud Console
+1. In the Terraform Cloud Console
     1. Queue Plan
     2. Evaluate plan
     3. If approprate, Apply plan
-4. Re-enable the webhook for CodePipeline and manually start a "Release Change"
+2. In code pipeline, manually approve steps as ncessary
 
 ![CICD](./docs/diagrams/cicd.png)
 
