@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "https://oram.co/"
 
 title = "Ben Oram"
 
@@ -15,7 +15,7 @@ paginate = 25
 
 [params]
   author = "Ben Oram"
-  avatar = "images/ben-oram.svg"
+  avatar = "/images/ben-oram.svg"
   twitter = "benzoram"
   github = "benoram"  
 
