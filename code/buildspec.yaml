@@ -9,8 +9,10 @@ phases:
 
     build:
         commands:
-            - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-            - brew install hugo
+            - apt-get update
+            - echo Installing hugo
+            - curl -L -o hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.82.1/hugo_extended_0.82.1_Linux-64bit.deb
+            - dpkg -i hugo.deb
             - cd code
             - npm install
             - npm run production
