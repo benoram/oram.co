@@ -30,12 +30,13 @@ terraform init # Select the "dev" workspace when prompted
 cd -
 
 # Setup web project
-cd code/web
+cd code
 npm install
 
 # Run locally
-npm run serve
-// You can view the site at [http://localhost:8080](http://localhost:8080)
+npm run development
+hugo serve
+// You can view the site at [http://localhost:1313](http://localhost:1313)
 ```
 
 ## Project Folder Layout

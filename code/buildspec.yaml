@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+    install:
+        runtime-versions:
+            nodejs: 12
+        finally:
+            - npm --version
+
+    build:
+        commands:
+            - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+            - brew install hugo
+            - cd code
+            - npm install
+            - npm run production
+            - hugo
+            - cd -
+
+artifacts:
+    files:
+        - 'deploy/buildspec.yaml'
+        - 'code/public/**/*'

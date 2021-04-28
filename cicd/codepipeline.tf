@@ -47,6 +47,19 @@ resource "aws_codepipeline" "codepipeline" {
     }
 
     stage {
+        name = "ApproveInfrastructure"
+
+        action {
+            name     = "Approve_Infrastructure"
+            category = "Approval"
+            owner    = "AWS"
+            provider = "Manual"
+            version  = "1"
+
+        }
+    }
+
+    stage {
         name = "Infrastructure"
 
         action {
@@ -61,6 +74,19 @@ resource "aws_codepipeline" "codepipeline" {
             configuration = {
                 ProjectName = aws_codebuild_project.infrastructure.name
             }
+        }
+    }
+
+    stage {
+        name = "ApproveRelease"
+
+        action {
+            name     = "Approve_Release"
+            category = "Approval"
+            owner    = "AWS"
+            provider = "Manual"
+            version  = "1"
+
         }
     }
 

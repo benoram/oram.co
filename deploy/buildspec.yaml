@@ -8,5 +8,5 @@ env:
 phases:
     build:
         commands:
-            - aws s3 sync  ./code/web/dist/ "s3://${BUCKET_NAME}/" --sse AES256 --cache-control max-age=3600 --only-show-errors --delete
+            - aws s3 sync  ./code/public/ "s3://${BUCKET_NAME}/" --sse AES256 --cache-control max-age=3600 --only-show-errors --delete
             - aws cloudfront create-invalidation --distribution-id ${CF_DISTRIBUTION_ID} --paths /\* 
