@@ -3,10 +3,10 @@ version: 0.2
 phases:
     install:
         commands:      
-            - wget https://releases.hashicorp.com/terraform/0.13.4/terraform_0.13.4_linux_amd64.zip
-            - unzip terraform_0.13.4_linux_amd64.zip
+            - wget https://releases.hashicorp.com/terraform/0.15.1/terraform_0.15.1_linux_amd64.zip
+            - unzip terraform_0.15.1_linux_amd64.zip
             - mv terraform /bin
-            - rm terraform_0.13.4_linux_amd64.zip
+            - rm terraform_0.15.1_linux_amd64.zip
 
     build:
         commands:
