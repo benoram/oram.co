@@ -14,6 +14,7 @@ Site contents - Simple about (home), links (navbar) and resume. Private pages fo
 brew cask install visual-studio-code
 brew install node
 brew install terraform
+brew install hugo
 
 # Grab code
 git clone https://github.com/benoram/oram.co

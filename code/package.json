@@ -1,0 +1,22 @@
+{
+  "scripts": {
+    "serve": "cross-env NODE_ENV=development concurrently \"postcss resources/css/theme.css -o static/css/theme.min.css --watch\"  \"live-server ./public\"",
+    "development": "cross-env NODE_ENV=development postcss resources/css/theme.css -o static/css/theme.min.css",
+    "production": "cross-env NODE_ENV=production postcss resources/css/theme.css -o static/css/theme.min.css",
+    "start": "npm run serve"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^1.2.0",
+    "autoprefixer": "^10.2.5",
+    "concurrently": "^5.2.0",
+    "cross-env": "^5.2.0",
+    "cssnano": "^4.1.10",
+    "live-server": "^1.2.1",
+    "postcss": "^8.2.13",
+    "postcss-cli": "^8.3.1",
+    "tailwindcss": "^2.1.2"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.4.0"
+  }
+}

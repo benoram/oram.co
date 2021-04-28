@@ -1,0 +1,22 @@
+<header class="mx-4 my-16 md:mx-0 md:my-32 text-center">
+    <h1 class="my-2 font-sans text-5xl leading-tight font-bold text-cool-gray-800">
+      <a href="/">{{ .Site.Title }}</a>
+    </h1>
+  
+    <p class="mb-6 text-2xl text-cool-gray-500">
+      Quick notes on Tech, AWS, .NET & Containers
+    </p>
+  
+    <nav class="text-xl leading-relaxed text-cool-gray-500">
+      <a href="{{ .Site.BaseURL | relLangURL }}" class="text-blue-500 border-b-2 border-blue-500 transition duration-200 ease-in-out transform focus:text-blue-400 focus:border-blue-400 hover:text-blue-400 hover:border-blue-400" rel="prefetch">Posts</a>
+  
+      {{ $baseUrl := trim .Site.BaseURL "/" }}
+      {{ range .Site.Menus.main }}
+      {{ $url := trim .URL "/" | absURL }}
+      &nbsp;/&nbsp;
+      <a href="{{ $url }}" class="text-blue-500 border-b-2 border-blue-500 transition duration-200 ease-in-out transform focus:text-blue-400 focus:border-blue-400 hover:text-blue-400 hover:border-blue-400" {{ if or (.Page) (hasPrefix $url $baseUrl) }}rel="prefetch"{{else}}target="_blank"{{ end }}>{{ .Name }}</a>
+      {{ end }}
+        
+    </nav>
+  </header>
+  
