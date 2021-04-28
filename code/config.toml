@@ -4,7 +4,8 @@ title = "Ben Oram"
 
 enableEmoji = true
 pygmentsCodeFences = true
-pygmentsUseClasses = true
+pygmentsstyle = "monokai"
+pygmentsUseClasses = false
 
 paginate = 25
 

@@ -40,7 +40,7 @@ Within your GitHub Action workflow,  you can run MinVer to generate the version 
     files: artifacts.zip
     tag_name: ${{ env.APP_VERSION }}
   env:
-    GITHUB_TOKEN: ${{ github.token }}```
+    GITHUB_TOKEN: ${{ github.token }}
 ```
 
 ### References

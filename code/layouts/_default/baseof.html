@@ -1,43 +1,37 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
+    <meta charset="utf-8" /> {{ hugo.Generator }}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-  {{ hugo.Generator }}
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Ben Oram</title>
 
-  <title>Ben Oram</title>
+    <!-- Open-Graph Data -->
+    {{ partial "head/open_graph.html" . }}
 
-  <!-- Open-Graph Data -->
-  {{ partial "head/open_graph.html" . }}
+    <meta name="author" content="{{ .Site.Params.author }}" />
+    <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
 
-  <meta name="author" content="{{ .Site.Params.author }}" />
-  <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
-
-  <!-- RSS -->
-  {{ with .OutputFormats.Get "RSS" }}
-  <link href="{{ .Permalink }}" type="application/rss+xml" title="{{ $.Site.Title }}" rel="alternate" />
-  {{ end }}
+    <!-- RSS -->
+    {{ with .OutputFormats.Get "RSS" }}
+    <link href="{{ .Permalink }}" type="application/rss+xml" title="{{ $.Site.Title }}" rel="alternate" /> {{ end }}
 
     <!-- Favicons -->
-  {{ partial "head/favicons.html" . }}
+    {{ partial "head/favicons.html" . }}
 
-  <!-- Stylesheets -->
-  {{ partial "head/stylesheets.html" . }}
+    <!-- Stylesheets -->
+    {{ partial "head/stylesheets.html" . }}
 
-  <!-- JavaScript -->
-  {{ partial "head/scripts.html" . }}
 </head>
+
 <body class="bg-cool-gray-50 border-t-4 border-orange-500 antialiased font-body">
-  <main class="sm:max-w-xl md:max-w-2xl sm:mx-auto">
-    {{ partial "page/header.html" . }}
+    <main class="sm:max-w-xl md:max-w-2xl sm:mx-auto">
+        {{ partial "page/header.html" . }} {{ block "content" . }}{{ end }} {{ partial "page/footer.html" . }}
+    </main>
 
-    {{ block "content" . }}{{ end }}
-
-    {{ partial "page/footer.html" . }}
-  </main>
-
-  {{ template "_internal/google_analytics.html" . }}
+    {{ template "_internal/google_analytics.html" . }}
 </body>
+
 </html>
