@@ -1,14 +1,12 @@
 baseURL = "http://example.org/"
 
 title = "Ben Oram"
-description = "Hugowind is a minimalist blog theme for Hugo using Tailwind CSS that focus on your content."
-tagline = "Hugowind is a minimalist blog theme for Hugo using Tailwind CSS that focus on your content."
 
 enableEmoji = true
 pygmentsCodeFences = true
 pygmentsUseClasses = true
 
-paginate = 2
+paginate = 25
 
 [[menu.main]]
   name = "About"

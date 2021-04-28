@@ -43,7 +43,7 @@ Within your GitHub Action workflow,  you can run MinVer to generate the version 
     GITHUB_TOKEN: ${{ github.token }}```
 ```
 
-# References
+### References
 
 - [MinVer](https://github.com/adamralph/minver)
 - [How MinVer works](https://github.com/adamralph/minver#how-it-works)

@@ -1,6 +1,7 @@
 {{ define "content" }}
 <section class="m-4 md:mx-0 md:my-8">
-  {{ range where site.RegularPages "Type" "in" site.Params.mainSections }}
+  {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }}
+  {{ range $paginator.Pages }}
   {{ partial "post/summary.html" . }}
   {{ end }}
 </section>
@@ -10,13 +11,13 @@
   <div class="flex">
     <div class="w-1/2 text-left py-8 border-r border-cool-gray-200">
       {{ if .Paginator.HasNext }}
-      <a href="{{ .Paginator.Next.URL }}" class="font-sans text-2xl leading-snug text-cool-gray-800 font-bold transition duration-200 ease-in-out transform focus:text-orange-500 hover:text-orange-500">"Older Posts"</a>
+      <a href="{{ .Paginator.Next.URL }}" class="font-sans text-2xl leading-snug text-cool-gray-800 font-bold transition duration-200 ease-in-out transform focus:text-orange-500 hover:text-orange-500">Older Posts</a>
       {{ end }}
     </div>
     
     <div class="w-1/2 text-right py-8">
       {{ if .Paginator.HasPrev }}
-      <a href="{{ .Paginator.Prev.URL }}" class="font-sans text-2xl leading-snug text-cool-gray-800 font-bold transition duration-200 ease-in-out transform focus:text-orange-500 hover:text-orange-500">"Newer Posts"</a>
+      <a href="{{ .Paginator.Prev.URL }}" class="font-sans text-2xl leading-snug text-cool-gray-800 font-bold transition duration-200 ease-in-out transform focus:text-orange-500 hover:text-orange-500">Newer Posts</a>
       {{ end }}
     </div>
   </div>

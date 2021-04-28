@@ -8,8 +8,8 @@
     {{ if eq .Kind "page" }}
     {{ partial "post/tags.html" . }}
     {{ end }}
-    <div class="prose prose-lg">
-      <p>{{ .Summary }}</p>
-    </div>
+    <div class="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto">
+      {{ .Content }}
+    </div> 
   </div>
   
