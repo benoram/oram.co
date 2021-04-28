@@ -20,14 +20,7 @@
   <link href="{{ .Permalink }}" type="application/rss+xml" title="{{ $.Site.Title }}" rel="alternate" />
   {{ end }}
 
-  <!-- Translations -->
-  {{ if .IsTranslated }}
-  {{ range .Translations }}
-  <link href="{{ .Permalink }}" title="{{ .Site.Title }}" hreflang="{{ .Language.Lang }}" rel="alternate" />
-  {{ end }}
-  {{ end }}
-
-  <!-- Favicons -->
+    <!-- Favicons -->
   {{ partial "head/favicons.html" . }}
 
   <!-- Stylesheets -->
