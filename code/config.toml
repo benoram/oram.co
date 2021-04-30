@@ -1,0 +1,24 @@
+baseURL = "https://dev.oram.co/"
+
+title = "Ben Oram"
+
+enableEmoji = true
+pygmentsCodeFences = true
+pygmentsstyle = "monokai"
+pygmentsUseClasses = false
+
+paginate = 25
+
+[[menu.main]]
+  name = "About"
+  url = "/about"
+
+[params]
+  author = "Ben Oram"
+  avatar = "/images/ben-oram.svg"
+  twitter = "benzoram"
+  github = "benoram"  
+
+[markup]
+  defaultMarkdownHandler = "blackfriday"
+

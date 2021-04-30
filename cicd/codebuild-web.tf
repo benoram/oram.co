@@ -35,6 +35,6 @@ resource "aws_codebuild_project" "web" {
 
     source {
         type = "CODEPIPELINE"
-        buildspec = "code/web/buildspec.yaml"
+        buildspec = "code/buildspec.yaml"
     }
 }

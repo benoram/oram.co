@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+    install:
+        runtime-versions:
+            nodejs: 12
+        finally:
+            - npm --version
+
+    build:
+        commands:
+            - apt-get update
+            - echo Installing hugo
+            - curl -L -o hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.82.1/hugo_extended_0.82.1_Linux-64bit.deb
+            - dpkg -i hugo.deb
+            - cd code
+            - npm install
+            - npm run production
+            - hugo
+            - cd -
+
+artifacts:
+    files:
+        - 'deploy/buildspec.yaml'
+        - 'code/public/**/*'

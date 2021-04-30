@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" /> {{ hugo.Generator }}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />    
+    <title>Ben Oram</title>
+
+    <!-- Open-Graph Data -->
+    {{ partial "head/open_graph.html" . }}
+
+    <meta name="author" content="Ben Oram" />
+    <meta name="description" content="Quick notes on tech, AWS, .NET & containers" />
+
+    <!-- RSS -->
+    {{ with .OutputFormats.Get "RSS" }}
+    <link href="{{ .Permalink }}" type="application/rss+xml" title="{{ $.Site.Title }}" rel="alternate" /> 
+    {{ end }}
+
+    <!-- Favicons -->
+    {{ partial "head/favicons.html" . }}
+
+    <!-- Stylesheets -->
+    {{ partial "head/stylesheets.html" . }}
+
+</head>
+
+<body class="bg-cool-gray-50 border-t-4 border-orange-500 antialiased font-body">
+    <main class="sm:max-w-xl md:max-w-2xl sm:mx-auto">
+        {{ partial "page/header.html" . }} {{ block "content" . }}{{ end }} {{ partial "page/footer.html" . }}
+    </main>
+</body>
+
+</html>

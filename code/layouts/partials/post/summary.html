@@ -1,0 +1,16 @@
+<div class="mb-16">
+    {{ if eq .Kind "page" }}
+    {{ partial "post/meta.html" . }}
+    {{ end }}
+    <div class="my-2">
+      <h3>
+        <span class="block text-base text-indigo-600 font-semibold tracking-wide uppercase">{{ .Params.post_type }}</span>
+        <a href="{{ .Permalink }}" class="mt-2 block text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">{{ .Title }}</a>
+      </h3>
+      {{ partial "post/tags.html" . }}      
+    </div>
+    <div class="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto">
+      {{ .Content }}
+    </div> 
+  </div>
+  

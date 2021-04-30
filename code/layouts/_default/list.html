@@ -1,0 +1,27 @@
+{{ define "content" }}
+<section class="mx-4 my-8 md:mx-0 md:my-12">
+    <div class="mb-6 break-words">
+        <h2 class="font-sans text-5xl leading-tight font-bold text-cool-gray-800">{{ .Title }}</h2>
+    </div>
+</section>
+
+<section class="m-4 md:mx-0 md:my-8">
+    {{ range .Paginator.Pages }} {{ partial "post/summary.html" . }}
+    <hr /> {{ end }}
+</section>
+
+{{ if gt .Paginator.TotalPages 1 }}
+<section class="m-4 md:mx-0 md:my-8 border-t border-b border-cool-gray-200">
+    <div class="flex">
+        <div class="w-1/2 text-left py-8 border-r border-cool-gray-200">
+            {{ if .Paginator.HasNext }}
+            <a href="{{ .Paginator.Next.URL }}" class="font-sans text-2xl leading-snug text-cool-gray-800 font-bold">Older Posts</a> {{ end }}
+        </div>
+
+        <div class="w-1/2 text-right py-8">
+            {{ if .Paginator.HasPrev }}
+            <a href="{{ .Paginator.Prev.URL }}" class="font-sans text-2xl leading-snug text-cool-gray-800 font-bold">Newer Posts</a> {{ end }}
+        </div>
+    </div>
+</section>
+{{ end }} {{ end }}

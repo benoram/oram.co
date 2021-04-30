@@ -14,6 +14,7 @@ Site contents - Simple about (home), links (navbar) and resume. Private pages fo
 brew cask install visual-studio-code
 brew install node
 brew install terraform
+brew install hugo
 
 # Grab code
 git clone https://github.com/benoram/oram.co
@@ -29,12 +30,13 @@ terraform init # Select the "dev" workspace when prompted
 cd -
 
 # Setup web project
-cd code/web
+cd code
 npm install
 
 # Run locally
-npm run serve
-// You can view the site at [http://localhost:8080](http://localhost:8080)
+npm run development
+hugo serve
+// You can view the site at [http://localhost:1313](http://localhost:1313)
 ```
 
 ## Project Folder Layout
@@ -44,17 +46,17 @@ npm run serve
 The [./cicd](./cicd) folder hosts all the Terraform necessary to instantiate our automation pipeline. The templates in this folder deploy AWS CodePipeline for a given repo, and that CodePipeline will be triggered by GitHub commit to build and push updates to infrastructure and code.
 
 > Note:
-There is an expectation that the CICD Terraform rarely changes. When it does, you may need to manually disable CodePipeline so you can deploy the CICD update before build automation starts and potentially conflicts.
+There is an expectation that the CICD Terraform rarely changes. When it does, you will need to run the terraform scripts locally to update your envionments.
 
-All deployments of CICD should be done manually using the following steps.
+From the command line.
 
-1. Disable CodePipeline by manually deactivating the Webhook trigger using the AWS CLI or Console.
-2. Commit and push (dev branch) or merge (Main branch)
-3. In the Terraform Cloud Console
-    1. Queue Plan
-    2. Evaluate plan
-    3. If approprate, Apply plan
-4. Re-enable the webhook for CodePipeline and manually start a "Release Change"
+```bash
+terraform login
+terraform init # select dev or prod as appropriate
+terraform validate
+terraform plan # manually review the plan
+terraform apply 
+```
 
 ![CICD](./docs/diagrams/cicd.png)
 
