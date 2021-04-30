@@ -4,19 +4,19 @@
 <head>
     <meta charset="utf-8" /> {{ hugo.Generator }}
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />    
     <title>Ben Oram</title>
 
     <!-- Open-Graph Data -->
     {{ partial "head/open_graph.html" . }}
 
-    <meta name="author" content="{{ .Site.Params.author }}" />
-    <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
+    <meta name="author" content="Ben Oram" />
+    <meta name="description" content="Quick notes on tech, AWS, .NET & containers" />
 
     <!-- RSS -->
     {{ with .OutputFormats.Get "RSS" }}
-    <link href="{{ .Permalink }}" type="application/rss+xml" title="{{ $.Site.Title }}" rel="alternate" /> {{ end }}
+    <link href="{{ .Permalink }}" type="application/rss+xml" title="{{ $.Site.Title }}" rel="alternate" /> 
+    {{ end }}
 
     <!-- Favicons -->
     {{ partial "head/favicons.html" . }}
