@@ -6,9 +6,9 @@ description:
 tags: [aws, macos]
 post_type: "on"
 ---
-I had a chance this week to run macOS on AWS EC2 . First impression, it is expensive and boot/reboot times are slow. In my case I wanted some Macs to hand over to a dev and I didn't want to pull out my credit card. I was able to spin up an EC2 instance for each of the 3 most recent versions of MacOS in less than 30 minutes. 
+I had a chance this week to run macOS on AWS EC2 . First impression, it is expensive and boot/reboot times are very slow. In my case I wanted some dev boxes to hand over to an engineer and I didn't want to pull out my credit card. I was able to spin up an EC2 instance for each of the 3 most recent versions of MacOS in less than 30 minutes. 
 
-If you want to use VNC/Screen Sharing, you will want to run the following two commands to set a password and enable remote management.
+If you want to use VNC/Screen Sharing, you will need to run the following two commands to set a password and enable remote management.
 
 ```bash
 sudo passwd ec2-user
