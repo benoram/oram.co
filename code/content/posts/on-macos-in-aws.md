@@ -1,6 +1,6 @@
 ---
 draft: false
-date: 2021-04-26T08:21:00-06:00
+date: 2021-05-07T08:21:00-06:00
 title: macOS on AWS EC2
 description: 
 tags: [aws, macos]
