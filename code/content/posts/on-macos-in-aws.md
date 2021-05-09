@@ -11,11 +11,20 @@ I had a chance this week to run macOS on AWS EC2 . First impression, it is expen
 If you want to use VNC/Screen Sharing, you will need to run the following two commands to set a password and enable remote management.
 
 ```bash
+# Set pasword
 sudo passwd ec2-user
 
+# Enable VNC access
 sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart \
 -activate -configure -access -on \
 -restart -agent -privs -all
+
+# Fixup the disk to make the full EBS volume available
+PDISK=$(diskutil list physical external | head -n1 | cut -d" " -f1)
+APFSCONT=$(diskutil list physical external | grep "Apple_APFS" | tr -s " " | cut -d" " -f8)
+yes | sudo diskutil repairDisk $PDISK
+
+sudo diskutil apfs resizeContainer $APFSCONT 0
 ```
 
 Overall [MacStadium](https://www.macstadium.com/) is much more cost-effective, they know Macs and they have M1. But if you want something running within AWS, your VPC, or in regions where MacStadium doesn't yet exist and you are ok with Intel, Mac on EC2 works just fine.
