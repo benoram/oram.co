@@ -17,3 +17,5 @@ Working around the issue involved running the following in my SSH session before
 ```bash
 security unlock-keychain ${HOME}/Library/Keychains/login.keychain-db 
 ```
+
+In subsequent sessions you may see an ```unknown: Authentication is required``` error. To avoid, run the unlock-keychain command again.
