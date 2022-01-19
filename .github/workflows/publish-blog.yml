@@ -24,7 +24,3 @@ jobs:
           echo POST_LABELS: $POST_LABELS
           echo ---
           echo date: ${date -I}
-          
-     
--name:Releaseuses:softprops/action-gh-release@v1if:startsWith(github.ref, 'refs/tags/')with:
-files:| Release.txt LICENSE
