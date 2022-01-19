@@ -15,7 +15,7 @@ jobs:
         env:
           POST_TITLE: ${{ github.event.issue.title }}
           POST_BODY: ${{ github.event.issue.body }}
-          POST_LABELS: ${{ github.event.issue.labels }}
+#          POST_LABELS: ${{ github.event.issue.labels }}
         run: |
           echo POST_DATE: $POST_TITLE
           echo ---
@@ -26,3 +26,5 @@ jobs:
           echo date: ${date -I}
           
      
+-name:Releaseuses:softprops/action-gh-release@v1if:startsWith(github.ref, 'refs/tags/')with:
+files:| Release.txt LICENSE
