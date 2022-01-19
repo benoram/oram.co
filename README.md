@@ -25,7 +25,7 @@ cd cicd
 terraform init # Select the "dev" workspace when prompted
 cd -
 
-cd automation
+cd infrastructure
 terraform init # Select the "dev" workspace when prompted
 cd -
 

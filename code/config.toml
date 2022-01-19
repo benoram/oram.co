@@ -20,5 +20,5 @@ paginate = 25
   github = "benoram"  
 
 [markup]
-  defaultMarkdownHandler = "blackfriday"
+  defaultMarkdownHandler = "goldmark"
 
