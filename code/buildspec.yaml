@@ -11,7 +11,7 @@ phases:
         commands:
             - apt-get update
             - echo Installing hugo
-            - curl -L -o hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.82.1/hugo_extended_0.82.1_Linux-64bit.deb
+            - curl -L -o hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.91.2/hugo_extended_0.91.2_Linux-64bit.deb
             - dpkg -i hugo.deb
             - cd code
             - npm install
